@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+	<h1>Welcome to Ninja Money!</h1>
+
+    <p> Your Gold: </p>
+    <p> {{session['YourGold']}} </p>
+    <div class="building">
+        <label>Farm: </label>
+        <form action='/process' method='POST'>
+            <input type="hidden" name="building" value="farm">
+            <input type="submit" value="Find Gold">
+        </form>
+    </div>
+    <div class="building">
+        <label>Cave: </label>
+        <form action='/process' method='POST'>
+            <input type="hidden" name="building" value="cave">
+            <input type="submit" value="Find Gold">
+        </form>
+    </div>
+    <div class="building">
+        <label>House: </label>
+        <form action='/process' method='POST'>
+            <input type="hidden" name="building" value="house">
+            <input type="submit" value="Find Gold">
+        </form>
+    </div>
+    <div class="building">
+        <label>Casino: </label>
+        <form action='/process' method='POST'>
+            <input type="hidden" name="building" value="casino">
+            <input type="submit" value="Find Gold">
+        </form>
+    </div>
+
+    Activities:
+    <br>
+    <textarea rows="10" cols="60" name="activities" readonly="">
+        {% for i in session['Activities'] [:: -1] %}
+        {{i}}
+        {% endfor %}
+    </textarea>
+
+  </body>
+</html>
